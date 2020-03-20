@@ -100,6 +100,12 @@ export interface ScoresProps {
     scores: GameHistory[] | [];
 }
 
+export interface ScoresRowProps {
+    label: string;
+    styles: string;
+    value: string | number;
+}
+
 export interface StoreState extends ScoresProps {
     boxes: Box[];
     finished: boolean;

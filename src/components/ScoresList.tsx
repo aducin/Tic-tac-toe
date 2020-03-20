@@ -1,4 +1,5 @@
 import React from 'react';
+import ScoresRow from '../components/ScoresRow';
 import { GameHistory, ScoresProps } from '../interfaces/interfaces';
 import { MOBILE_MAX_WIDTH } from '../constants/constants';
 import { useMediaQuery } from 'react-responsive';
@@ -10,22 +11,10 @@ const ScoresList: React.FC<ScoresProps> = (props: ScoresProps) => {
         return isMobile ?
             (
                 <li key={index} className={styles.mobileItem}>
-                    <p className={styles.mobileItemRow}>
-                        <label>Winner:</label>
-                        <span>{el.winner}</span>
-                    </p>
-                    <p className={styles.mobileItemRow}>
-                        <label>Moves:</label>
-                        <span>{el.moves}</span>
-                    </p>
-                    <p className={styles.mobileItemRow}>
-                        <label>Game time:</label>
-                        <span>{el.duration.toFixed(2)}sec.</span>
-                    </p>
-                    <p className={styles.mobileItemRow}>
-                        <label>Date:</label>
-                        <span>{el.finishedTime}</span>
-                    </p>
+                    <ScoresRow label="Winner" styles={styles.mobileItemRow} value={el.winner} />
+                    <ScoresRow label="Moves" styles={styles.mobileItemRow} value={el.moves} />
+                    <ScoresRow label="Game time" styles={styles.mobileItemRow} value={`${el.duration.toFixed(2)}sec.`} />
+                    <ScoresRow label="Date" styles={styles.mobileItemRow} value={el.finishedTime} />
                 </li>
             ) :
             (
@@ -65,6 +54,6 @@ const ScoresList: React.FC<ScoresProps> = (props: ScoresProps) => {
             {content}
         </div>
     );
-}
+};
 
 export default React.memo(ScoresList);
