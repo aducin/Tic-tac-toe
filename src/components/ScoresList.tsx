@@ -1,8 +1,8 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import ScoreDetailsElement from '../components/ScoreDetailsElement';
 import { GameHistory, ScoresProps } from '../interfaces/interfaces';
 import { MOBILE_MAX_WIDTH } from '../constants/constants';
-import { useMediaQuery } from 'react-responsive';
 import styles from '../assets/styles/scoresList.module.scss';
 
 const ScoresList: React.FC<ScoresProps> = (props: ScoresProps) => {

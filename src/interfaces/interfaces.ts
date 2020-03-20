@@ -96,7 +96,7 @@ export interface ScoresAction {
     finishedTime: Date;
 }
 
-export interface ScoresDetailsElementProps {
+export interface ScoreDetailsElementProps {
     label: string;
     mobile: boolean;
     value: string | number;
