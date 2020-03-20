@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoxItemProps } from '../types/types';
+import { BoxItemProps } from '../interfaces/interfaces';
 import { PLAYER_FIRST_TYPE } from '../constants/constants';
 import ImageO from '../assets/images/o_normal.png';
 import ImageX from '../assets/images/x_normal.png';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageProps } from '../types/types';
+import { MessageProps } from '../interfaces/interfaces';
 import { MESSAGE_HEADER_SUCCESS, MESSAGE_HEADER_WARNING } from '../constants/constants';
 import styles from '../assets/styles/message.module.scss';
 

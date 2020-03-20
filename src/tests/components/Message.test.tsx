@@ -3,7 +3,7 @@ import TestRenderer from 'react-test-renderer';
 import { shallow } from "enzyme";
 import { ShallowWrapper } from 'enzyme';
 import Message from '../../components/Message';
-import { MessageProps } from '../../types/types';
+import { MessageProps } from '../../interfaces/interfaces';
 import { MESSAGE_HEADER_SUCCESS, MESSAGE_HEADER_WARNING } from '../../constants/constants';
 
 const data: MessageProps = {

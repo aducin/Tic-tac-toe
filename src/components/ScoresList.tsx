@@ -1,5 +1,5 @@
 import React from 'react';
-import { GameHistory, ScoresProps } from '../types/types';
+import { GameHistory, ScoresProps } from '../interfaces/interfaces';
 import { MOBILE_MAX_WIDTH } from '../constants/constants';
 import { useMediaQuery } from 'react-responsive';
 import styles from '../assets/styles/scoresList.module.scss';

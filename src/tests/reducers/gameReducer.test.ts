@@ -1,5 +1,5 @@
 import { gameReducer, setDefaultStoreState } from '../../reducers/gameReducer';
-import { Box, PlayerAction, ScoresAction, StoreState } from '../../types/types';
+import { Box, PlayerAction, ScoresAction, StoreState } from '../../interfaces/interfaces';
 import { DEFAULT_PLAYER1_NAME, DEFAULT_PLAYER2_NAME, GAMETYPES } from '../../constants/constants';
 
 const actions = ['start', 'setBoxes', 'setPlayer', 'setScores'];

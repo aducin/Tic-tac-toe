@@ -1,4 +1,4 @@
-import { GameType } from '../types/types';
+import { GameType } from '../interfaces/interfaces';
 
 export const DEFAULT_PLAYER1_NAME = 'Player 1';
 export const DEFAULT_PLAYER2_NAME = 'Player 2';

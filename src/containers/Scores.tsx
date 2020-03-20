@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { EMPTY_HISTORY, SCORES_LIST_HEADER } from '../constants/constants';
 import Message from '../components/Message';
 import ScoresList from '../components/ScoresList';
-import { ScoresProps } from '../types/types';
+import { ScoresProps } from '../interfaces/interfaces';
 import styles from '../assets/styles/container.module.scss';
 
 const mapStateToProps = (state: ScoresProps) => ({ scores: state.scores });

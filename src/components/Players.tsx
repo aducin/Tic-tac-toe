@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlayersProps } from '../types/types';
+import { PlayersProps } from '../interfaces/interfaces';
 import styles from '../assets/styles/players.module.scss';
 
 const Players: React.FC<PlayersProps> = (props: PlayersProps) => {

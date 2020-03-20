@@ -6,7 +6,7 @@ import Details from '../components/Details';
 import Message from '../components/Message';
 import Players from '../components/Players';
 import { connect } from "react-redux";
-import { Box, GameComponentState, StoreState as GameProps } from '../types/types';
+import { Box, GameComponentState, StoreState as GameProps } from '../interfaces/interfaces';
 import {
     resetOrStartAction,
     setBoxesAction,

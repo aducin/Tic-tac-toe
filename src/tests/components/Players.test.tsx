@@ -3,7 +3,7 @@ import TestRenderer from 'react-test-renderer';
 import { shallow } from "enzyme";
 import { ShallowWrapper } from 'enzyme';
 import Players from '../../components/Players';
-import { PlayersProps } from '../../types/types';
+import { PlayersProps } from '../../interfaces/interfaces';
 import { DEFAULT_PLAYER1_NAME , DEFAULT_PLAYER2_NAME } from '../../constants/constants';
 
 const data: PlayersProps = {

@@ -1,4 +1,4 @@
-import { Box, ScoresAction, PlayerAction } from '../types/types';
+import { Box, ScoresAction, PlayerAction } from '../interfaces/interfaces';
 
 export const resetOrStartAction = (action: string) => {
     return {

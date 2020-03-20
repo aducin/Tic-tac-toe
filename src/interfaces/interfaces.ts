@@ -9,14 +9,14 @@ export interface Box extends BoxBase {
     winning: boolean;
 };
 
-export type BoxesProps = {
+export interface BoxesProps {
     boxes: Box[];
     finished: boolean;
     onBoxClicked: (id: number) => void;
     started: boolean;
 };
 
-export type BoxItemProps = {
+export interface BoxItemProps {
     data: {
         id: number;
         item: Box,
@@ -24,18 +24,18 @@ export type BoxItemProps = {
     onBoxClicked: (id: number) => void;
 }
 
-export type ButtonsProps = {
+export interface ButtonsProps {
     onButtonClicked: (button: string) => void;
     started: boolean;
 };
 
-export type DetailsProps = {
+export interface DetailsProps {
     activePlayer: string;
     turnTimer: number;
     value: string;
 }
 
-export type GameComponentState = {
+export interface GameComponentState {
     gameTimer: number;
     message: string;
     success: boolean;
@@ -43,7 +43,7 @@ export type GameComponentState = {
     warning: boolean;
 };
 
-export type GameHistory = {
+export interface GameHistory {
     duration: number;
     finishedTime: string;
     moves: number;
@@ -54,40 +54,40 @@ export interface GameType extends BoxBase {
     id: number;
 };
 
-export type IsPossibleToWin = {
+export interface IsPossibleToWin {
     first: number;
     second: number
 };
 
-export type MatchedRows = {
+export interface MatchedRows {
     first: number;
     second: number;
 };
 
-export type MessageProps = {
+export interface MessageProps {
     message: string;
     onRemoveAlert?: () => void;
     success: boolean;
     warning: boolean;
 };
 
-type Player = {
+interface Player {
     active: boolean;
     name: string;
 }
 
-export type PlayerAction = {
+export interface PlayerAction {
     property: string;
     value: string;
 }
 
-export type PlayersProps = {
+export interface PlayersProps {
     onInputChanged: (property: string, name: string) => void;
     player1: string;
     player2: string;
 }
 
-export type ReducerAction = {
+export interface ReducerAction {
     payload: {
         boxes?: Box[];
         player?: PlayerAction;
@@ -96,7 +96,7 @@ export type ReducerAction = {
     type: string;
 };
 
-export type ScoresAction = {
+export interface ScoresAction {
     duration: number;
     finishedTime: Date;
 }

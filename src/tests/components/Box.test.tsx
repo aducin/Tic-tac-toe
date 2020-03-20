@@ -3,7 +3,7 @@ import TestRenderer from 'react-test-renderer';
 import { shallow } from "enzyme";
 import { ShallowWrapper } from 'enzyme';
 import Box from '../../components/Box';
-import { BoxItemProps } from '../../types/types';
+import { BoxItemProps } from '../../interfaces/interfaces';
 
 const boxItemProps: BoxItemProps = {
     data: {

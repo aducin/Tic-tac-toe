@@ -1,9 +1,16 @@
-import { Box, MatchedRows } from '../types/types';
+import { Box, IsPossibleToWin, MatchedRows } from '../interfaces/interfaces';
 import {
     PLAYER_FIRST_TYPE,
     ROWS_TO_WIN,
     WINNING_ROWS
 } from '../constants/constants';
+
+export const checkIfPossibleToWin = (boxes: Box[]) => boxes.reduce((result: IsPossibleToWin, box: Box ) => {
+    if (box.assigned) {
+        box.value === PLAYER_FIRST_TYPE ? result.first++ : result.second++;
+    }
+    return result;
+}, { first: 0, second: 0 });
 
 export const checkWinningRows = (boxes: Box[]) => {
     return WINNING_ROWS.reduce((result: number[] | [] | boolean, row: number[]) => {

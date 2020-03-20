@@ -1,4 +1,4 @@
-import { Box, ScoresAction, PlayerAction } from '../../types/types';
+import { Box, ScoresAction, PlayerAction } from '../../interfaces/interfaces';
 import {
     resetOrStartAction,
     setBoxesAction,

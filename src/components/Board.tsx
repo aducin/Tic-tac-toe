@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from './Box';
-import { BoxesProps } from '../types/types';
+import { BoxesProps } from '../interfaces/interfaces';
 import styles from '../assets/styles/board.module.scss';
 
 const containerStyles = (started: boolean) => ({

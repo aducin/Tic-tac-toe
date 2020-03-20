@@ -1,12 +1,6 @@
-import { Box, IsPossibleToWin, ReducerAction, StoreState } from '../types/types';
-import { checkWinningRows, formatDate } from '../functions/functions';
-import {
-    DEFAULT_PLAYER1_NAME,
-    DEFAULT_PLAYER2_NAME,
-    GAMETYPES,
-    PLAYER_FIRST_TYPE,
-    ROWS_TO_WIN
-} from '../constants/constants';
+import { Box, ReducerAction, StoreState } from '../interfaces/interfaces';
+import { checkIfPossibleToWin, checkWinningRows, formatDate } from '../functions/reducerFunctions';
+import { DEFAULT_PLAYER1_NAME, DEFAULT_PLAYER2_NAME, GAMETYPES, ROWS_TO_WIN } from '../constants/constants';
 
 const defaultBoxes: Box[] = Array(9).fill({ assigned: false, icon: '', value: '', winning: false });
 
@@ -45,12 +39,7 @@ export const gameReducer = (
                 return el.assigned ? result : false;
             }, true);
             // check if it possible to win - if not do skip without checking the winning combinations
-            const isPossibleToWin: IsPossibleToWin = boxes.reduce((result: IsPossibleToWin, box: Box ) => {
-                if (box.assigned) {
-                    box.value === PLAYER_FIRST_TYPE ? result.first++ : result.second++;
-                }
-                return result;
-            }, { first: 0, second: 0 });
+            const isPossibleToWin = checkIfPossibleToWin(boxes);
             
             if (isPossibleToWin.first >= ROWS_TO_WIN || isPossibleToWin.second >= ROWS_TO_WIN) {
                 const winningRows = checkWinningRows(boxes);

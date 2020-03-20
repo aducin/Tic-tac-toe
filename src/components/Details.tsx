@@ -1,5 +1,5 @@
 import React from 'react';
-import { DetailsProps } from '../types/types';
+import { DetailsProps } from '../interfaces/interfaces';
 import { PLAYER_FIRST_TYPE } from '../constants/constants';
 import ImageO from '../assets/images/o_normal.png';
 import ImageX from '../assets/images/x_normal.png';
