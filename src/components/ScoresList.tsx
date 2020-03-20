@@ -6,11 +6,9 @@ import styles from '../assets/styles/scoresList.module.scss';
 
 const ScoresList: React.FC<ScoresProps> = (props: ScoresProps) => {
     const isMobile = useMediaQuery({ query: `(max-width: ${MOBILE_MAX_WIDTH})` });
-    let content;
-
-    if (isMobile) {
-        const list = (props.scores as (GameHistory)[]).map((el: GameHistory, index: number) => {
-            return(
+    const list = (props.scores as (GameHistory)[]).map((el: GameHistory, index: number) => {
+        return isMobile ?
+            (
                 <li key={index} className={styles.mobileItem}>
                     <p className={styles.mobileItemRow}>
                         <label>Winner:</label>
@@ -29,16 +27,8 @@ const ScoresList: React.FC<ScoresProps> = (props: ScoresProps) => {
                         <span>{el.finishedTime}</span>
                     </p>
                 </li>
-            );
-        }); 
-        content = (
-            <ul className={styles.mobileList}>
-                {list}
-            </ul>
-        );
-    } else {
-        const list = (props.scores as (GameHistory)[]).map((el: GameHistory, index: number) => {
-            return(
+            ) :
+            (
                 <tr key={index}>
                     <th>{el.winner}</th>
                     <th>{el.moves}</th>
@@ -46,8 +36,15 @@ const ScoresList: React.FC<ScoresProps> = (props: ScoresProps) => {
                     <th>{el.finishedTime}</th>
                 </tr>
             );
-        });
-        content = (
+    }); 
+
+    const content = isMobile ?
+        (
+            <ul className={styles.mobileList}>
+                {list}
+            </ul>
+        ) :
+        (
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -62,7 +59,6 @@ const ScoresList: React.FC<ScoresProps> = (props: ScoresProps) => {
                 </tbody>
             </table>
         );
-    }
     
     return(
         <div className={styles.container}>
