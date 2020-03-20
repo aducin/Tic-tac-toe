@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tic-tac-toe app
+
+Tic-tac-toe is a demo app based on React, Redux and TypeScript.
 
 ## Available Scripts
 
