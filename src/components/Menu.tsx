@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import styles from '../assets/styles/links.module.scss';
+import styles from '../assets/styles/menu.module.scss';
 
-const Links: React.FC = () => {
+const Menu: React.FC = () => {
     const buttonClasses = `btn btn-info ${styles.button}`;
     return(
         <div className={styles.container}>
@@ -18,4 +18,4 @@ const Links: React.FC = () => {
     );
 }
 
-export default React.memo(Links);
+export default React.memo(Menu);

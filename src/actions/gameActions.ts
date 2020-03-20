@@ -1,22 +1,13 @@
 import { Box, ScoresAction, PlayerAction } from '../interfaces/interfaces';
 
-export const resetOrStartAction = (action: string) => {
+export const resetOrStart = (action: string) => {
     return {
         type: action,
         payload: {}
     }
 }
 
-export const setBoxesAction = (data: Box[]) => {
-    return {
-        type: 'setBoxes',
-        payload: {
-            boxes: data
-        }
-    }
-};
-
-export const setScoresAction = (data: ScoresAction) => {
+export const setScores = (data: ScoresAction) => {
     return {
         type: 'setScores',
         payload: {
@@ -28,9 +19,18 @@ export const setScoresAction = (data: ScoresAction) => {
     }
 };
 
-export const setPlayerAction = (data: PlayerAction) => {
+export const updateBoxes = (data: Box[]) => {
     return {
-        type: 'setPlayer',
+        type: 'updateBoxes',
+        payload: {
+            boxes: data
+        }
+    }
+};
+
+export const updatePlayer = (data: PlayerAction) => {
+    return {
+        type: 'updatePlayer',
         payload: {
             player: {
                 property: data.property,

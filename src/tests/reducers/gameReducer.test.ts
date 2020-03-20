@@ -2,7 +2,7 @@ import { gameReducer, setDefaultStoreState } from '../../reducers/gameReducer';
 import { Box, PlayerAction, ScoresAction, StoreState } from '../../interfaces/interfaces';
 import { DEFAULT_PLAYER1_NAME, DEFAULT_PLAYER2_NAME, GAMETYPES } from '../../constants/constants';
 
-const actions = ['start', 'setBoxes', 'setPlayer', 'setScores'];
+const actions = ['start', 'setScores', 'updateBoxes', 'updatePlayer'];
 const initialState: StoreState = setDefaultStoreState(DEFAULT_PLAYER1_NAME, DEFAULT_PLAYER2_NAME);
 
 const boxesData: Box[] = [
@@ -28,9 +28,28 @@ describe('Game reducer', () => {
         expect(gameReducer(initialState, dataObj)).toEqual(updatedState);
     });
 
-    it('should update boxes data', () => {
+    it('should set new row in the scores list', () => {
         let dataObj = {
             type: actions[1],
+            payload: {
+                scoresList: scoresData
+            }
+        };
+        const updatedScores = [
+            {
+                duration: 1,
+                finishedTime: defaultDate,
+                moves: 0,
+                winner: DEFAULT_PLAYER1_NAME 
+            }
+        ];
+        const updatedState = { ...initialState, scores: updatedScores };
+        expect(gameReducer(initialState, dataObj)).toEqual(updatedState);
+    }); 
+
+    it('should update boxes data', () => {
+        let dataObj = {
+            type: actions[2],
             payload: {
                 boxes: boxesData
             }
@@ -47,33 +66,14 @@ describe('Game reducer', () => {
         expect(gameReducer(initialState, dataObj)).toEqual(updatedState);
     });
 
-    it('should set player`s data', () => {
+    it('should update player`s data', () => {
         let dataObj = {
-            type: actions[2],
+            type: actions[3],
             payload: {
                 player: playerData
             }
         };
         const updatedState = { ...initialState, player1: { active: true, name: 'name'} };
         expect(gameReducer(initialState, dataObj)).toEqual(updatedState);
-    });
-
-    it('should update scores list', () => {
-        let dataObj = {
-            type: actions[3],
-            payload: {
-                scoresList: scoresData
-            }
-        };
-        const updatedScores = [
-            {
-                duration: 1,
-                finishedTime: defaultDate,
-                moves: 0,
-                winner: DEFAULT_PLAYER1_NAME 
-            }
-        ];
-        const updatedState = { ...initialState, scores: updatedScores };
-        expect(gameReducer(initialState, dataObj)).toEqual(updatedState);
-    });   
+    });  
 });

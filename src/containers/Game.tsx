@@ -7,12 +7,7 @@ import Message from '../components/Message';
 import Players from '../components/Players';
 import { connect } from "react-redux";
 import { Box, GameComponentState, StoreState as GameProps } from '../interfaces/interfaces';
-import {
-    resetOrStartAction,
-    setBoxesAction,
-    setPlayerAction,
-    setScoresAction
-} from '../actions/gameActions';
+import * as actions from '../actions/gameActions';
 import {
     GAME_NOT_STARTED,
     GAME_OVER,
@@ -37,7 +32,7 @@ class Game extends PureComponent<GameProps, GameComponentState> {
     turnInterval: any;
 
     componentDidMount() {
-        store.dispatch(resetOrStartAction('reset'));
+        store.dispatch(actions.resetOrStart('reset'));
     };
 
     componentDidUpdate(prevProps: GameProps, prevState: GameComponentState) {
@@ -48,11 +43,11 @@ class Game extends PureComponent<GameProps, GameComponentState> {
             
             if (isSucceded) {
                 const timers = this.setHistoryTimers();
-                store.dispatch(setScoresAction(timers));
+                store.dispatch(actions.setScores(timers));
                 const winner = this.props.player1.active ? this.props.player1.name : this.props.player2.name;
                 this.setState({ message: GAME_SUCCEDED(winner, timers.duration), success: true, warning: false });
             } else {
-                store.dispatch(resetOrStartAction('reset'));
+                store.dispatch(actions.resetOrStart('reset'));
                 this.setState({ message: GAME_OVER, success: false, warning: true });
             }
         } else if (!prevProps.started && this.props.started) {
@@ -86,32 +81,33 @@ class Game extends PureComponent<GameProps, GameComponentState> {
                     iconWinning: this.props.next.iconWinning,
                     value: this.props.next.value
                 };
-                store.dispatch(setBoxesAction(newBoxes));
+                store.dispatch(actions.updateBoxes(newBoxes));
                 this.setState({ turnTimer: TURN_TIME });
             }
         }
     };
 
     handleButtonClicked = (action: string) => {
-        store.dispatch(resetOrStartAction(action));
+        store.dispatch(actions.resetOrStart(action));
         const gameTimer = action === 'start' ? new Date().getTime() : 0;
-        this.setState({ gameTimer, message: '', warning: false });
+        this.clearTurnInterval();
+        this.setState({ gameTimer, message: '', turnTimer: TURN_TIME, warning: false });
     };
 
     handleInputChanged = (property: string, value: string) => {
-        store.dispatch(setPlayerAction({ property, value }));
+        store.dispatch(actions.updatePlayer({ property, value }));
     };
 
     handleRemoveMessage = () => {
         this.alertTimeout && clearTimeout(this.alertTimeout);
         if (this.state.success) {
-            store.dispatch(resetOrStartAction('reset'));
+            store.dispatch(actions.resetOrStart('reset'));
         }
         this.setState({ message: '', success: false, warning: false });
     };
 
     handleTimeOver = () => {
-        store.dispatch(setBoxesAction(this.props.boxes));
+        store.dispatch(actions.updateBoxes(this.props.boxes));
         this.setState({
             message: TIME_IS_OVER,
             turnTimer: TURN_TIME,

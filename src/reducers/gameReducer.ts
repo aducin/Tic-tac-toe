@@ -33,7 +33,29 @@ export const gameReducer = (
             state = setDefaultStoreState(state.player1.name, state.player2.name);
             break;
         }
-        case "setBoxes": {
+        case "setScores": {
+            if (action.payload.scoresList) {
+                const winner = state.player1.active ? state.player1.name : state.player2.name;
+                const newRow = {
+                    duration: action.payload.scoresList.duration,
+                    finishedTime: formatDate(action.payload.scoresList.finishedTime),
+                    moves: state.moves,
+                    winner
+                }
+                const scores = [...state.scores, newRow];
+                localStorage.setItem('scoresList', JSON.stringify(scores));
+                state = { ...state, scores };
+            };
+            break;
+        }
+        case "start": {
+            state = {
+                ...state,
+                started: true
+            };
+            break;
+        }
+        case "updateBoxes": {
             let boxes = action.payload.boxes!;
             let finished = boxes.reduce((result, el) => {
                 return el.assigned ? result : false;
@@ -70,7 +92,7 @@ export const gameReducer = (
             };
             break;
         }
-        case "setPlayer": {
+        case "updatePlayer": {
             if (action.payload.player) {
                 state = {
                     ...state,
@@ -82,28 +104,6 @@ export const gameReducer = (
                         state.player2
                 };
             }
-            break;
-        }
-        case "setScores": {
-            if (action.payload.scoresList) {
-                const winner = state.player1.active ? state.player1.name : state.player2.name;
-                const newRow = {
-                    duration: action.payload.scoresList.duration,
-                    finishedTime: formatDate(action.payload.scoresList.finishedTime),
-                    moves: state.moves,
-                    winner
-                }
-                const scores = [...state.scores, newRow];
-                localStorage.setItem('scoresList', JSON.stringify(scores));
-                state = { ...state, scores };
-            };
-            break;
-        }
-        case "start": {
-            state = {
-                ...state,
-                started: true
-            };
             break;
         }
     }

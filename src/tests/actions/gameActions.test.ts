@@ -1,10 +1,5 @@
 import { Box, ScoresAction, PlayerAction } from '../../interfaces/interfaces';
-import {
-    resetOrStartAction,
-    setBoxesAction,
-    setPlayerAction,
-    setScoresAction
-} from '../../actions/gameActions';
+import * as actions from '../../actions/gameActions';
 
 const boxesData: Box[] = [
     {
@@ -21,27 +16,7 @@ const scoresData: ScoresAction = { duration: 1, finishedTime: new Date() };
 describe('Game actions', () => {
     it('should reset data', () => {
         const expectedAction = { type: 'reset', payload: {} };
-        expect(resetOrStartAction('reset')).toEqual(expectedAction);
-    });
-
-    it('should set boxes data', () => {
-        const expectedAction = {
-            type: 'setBoxes',
-            payload: {
-                boxes: boxesData
-            }
-        }
-        expect(setBoxesAction(boxesData)).toEqual(expectedAction);
-    });
-
-    it('should set player`s data', () => {
-        const expectedAction = {
-            type: 'setPlayer',
-            payload: {
-                player: playerData
-            }
-        };
-        expect(setPlayerAction(playerData)).toEqual(expectedAction);
+        expect(actions.resetOrStart('reset')).toEqual(expectedAction);
     });
 
     it('should set score details', () => {
@@ -51,6 +26,26 @@ describe('Game actions', () => {
                 scoresList: scoresData
             }
         };
-        expect(setScoresAction(scoresData)).toEqual(expectedAction);
+        expect(actions.setScores(scoresData)).toEqual(expectedAction);
     }); 
+
+    it('should update boxes data', () => {
+        const expectedAction = {
+            type: 'updateBoxes',
+            payload: {
+                boxes: boxesData
+            }
+        }
+        expect(actions.updateBoxes(boxesData)).toEqual(expectedAction);
+    });
+
+    it('should update player`s data', () => {
+        const expectedAction = {
+            type: 'updatePlayer',
+            payload: {
+                player: playerData
+            }
+        };
+        expect(actions.updatePlayer(playerData)).toEqual(expectedAction);
+    });
 });
