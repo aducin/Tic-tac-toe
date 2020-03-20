@@ -1,0 +1,30 @@
+@import 'mixins';
+@import 'variables';
+
+.container {
+    background: $color-light-gray;
+    height: 2em;
+    text-align: center;
+}
+
+@include respond-above($sm-breakpoint) {
+    .container {
+        @include position-absolute(14em, auto, 3em, 2em);
+    }
+
+    .label {
+        font-size: 2em;
+        margin-top: -0.3em;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .container {
+        @include position-absolute(1em, auto, 4em, 1em);
+    }
+
+    .label {
+        font-size: 1.5em;
+        text-align: center;
+    }
+}

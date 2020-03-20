@@ -1,0 +1,71 @@
+@import 'mixins';
+@import 'variables';
+
+.container {
+    background: $color-light-gray;
+}
+
+.link {
+    @include borders(1px, $color-black);
+    border-radius: 0.25em;
+    font-size: 2em;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    padding: 0.25em 0 0.5em 0;
+    text-align: center;
+    width: 100%;
+}
+
+.menu { 
+    @include position-absolute(0, 4em, auto, auto);
+    font-size: 0.75em;
+    margin-bottom: 3%;
+    transform: translateX(-200%);
+    transition: $transition-time transform $transition-type;
+    width: 100%;
+    z-index: 2;
+    background: $color-white;
+}
+
+@include respond-above($sm-breakpoint) {
+    .menuButton {
+        display: none;
+    }
+
+    .container {
+        @include position-absolute(2em, 1em, 3em, auto);
+        height: 2em;
+        text-align: center;
+    }
+
+    .label {
+        font-size: 2em;
+        margin-top: -0.3em;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .container {
+        @include position-absolute(1em, 1em, 2em, auto);
+        text-align: right;
+    }
+
+    .label {
+        font-size: 1.5em;
+        margin-right: 1em;
+    }
+
+    .menuButton {
+        float: left;
+        margin-left: 1em;
+        margin-top: 0.4em;
+    }
+
+    .menuButton:focus {
+        pointer-events: none;
+    }
+
+    .menuButton:focus ~ .menu, .menu:hover {
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,35 @@
+@import 'mixins';
+@import 'variables';
+
+.boxRow {
+    width: 100%;
+}
+
+.container {
+    @include borders(2px, $color-black);
+    @include position-absolute(0, 0, 0, auto);
+    margin: auto;
+    float: left;
+}
+
+@include respond-above($sm-breakpoint) {
+    .boxRow {
+        height: 99px;
+    }
+
+    .container {
+        height: $board-large;
+        width: $board-large;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .boxRow {
+        height: 84px;
+    }
+
+    .container {
+        height: $board-small;
+        width: $board-small;
+    }
+}

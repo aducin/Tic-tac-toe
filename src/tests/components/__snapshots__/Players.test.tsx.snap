@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Players component snapshot Players component renders correctly 1`] = `
+Array [
+  <div
+    className="innerContainer"
+  >
+    <label
+      className="label"
+    >
+      Player 1
+    </label>
+    <input
+      className="form-control input"
+      onChange={[Function]}
+      type="text"
+      value="Player 1"
+    />
+  </div>,
+  <div
+    className="innerContainer"
+  >
+    <label
+      className="label"
+    >
+      Player 2
+    </label>
+    <input
+      className="form-control input"
+      onChange={[Function]}
+      type="text"
+      value="Player 2"
+    />
+  </div>,
+]
+`;

@@ -1,0 +1,32 @@
+@import 'mixins';
+@import 'variables';
+
+.container {
+    background: $color-white;
+    margin: auto;
+    position: relative;
+    width: 300px;
+}
+
+.icon {
+    @include position-absolute(auto, 1em, 1em, auto);
+    height: 2em;
+    width: 2em;
+}
+
+.row {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+@include respond-above($sm-breakpoint) {
+    .container {
+        margin-top: 1.5em;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .container {
+        margin-top: 0.5em;
+    }
+}

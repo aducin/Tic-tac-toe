@@ -1,0 +1,51 @@
+@import 'mixins';
+@import 'variables';
+
+.innerContainer {
+    width: 100%;
+}
+
+.input {
+    margin: auto;
+    text-align: center;
+}
+
+.label {
+    float: left;
+    margin-left: 2%;
+    margin-top: 0.5em;
+}
+
+@include respond-above($sm-breakpoint) {
+    .innerContainer {
+        height: 2.5em;
+        margin-top: 0.5em;
+    }
+
+    .input {
+        @include position-absolute(0, auto, 0, auto); 
+        width: 200px !important;
+    }
+
+    .label {
+        width: 50%;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .innerContainer {
+        height: 2.5em;
+        margin-top: 0.25em;
+    }
+
+    .input {
+        position: relative;
+        float: right;
+        margin-right: 0.5em;
+        width: 70% !important;
+    }
+
+    .label {
+        width: 22%;
+    }
+}

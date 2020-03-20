@@ -1,0 +1,31 @@
+@import 'mixins';
+@import 'variables';
+
+.container {
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+@include respond-above($sm-breakpoint) {
+    .container {
+        bottom: -1em;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .container {
+        bottom: 2em;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .message {
+        position: relative;
+        left: -0.5em;
+    }
+}

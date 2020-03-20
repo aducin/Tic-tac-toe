@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScoresList component snapshot ScoresList component renders correctly 1`] = `
+<div
+  className="container"
+>
+  <table
+    className="table table-striped"
+  >
+    <thead>
+      <tr>
+        <th>
+          Winner
+        </th>
+        <th>
+          Moves
+        </th>
+        <th>
+          Game time
+        </th>
+        <th>
+          Date
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+          Player 1
+        </th>
+        <th>
+          5
+        </th>
+        <th>
+          1.58
+          sec.
+        </th>
+        <th>
+          2020-03-19 10:00
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Player 2
+        </th>
+        <th>
+          5
+        </th>
+        <th>
+          2.25
+          sec.
+        </th>
+        <th>
+          2020-03-20 10:15
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

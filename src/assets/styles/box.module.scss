@@ -1,0 +1,29 @@
+@import 'mixins';
+@import 'variables';
+
+.item {
+    @include borders(1px, $color-black);
+    position: relative;
+    display: inline-block;
+}
+
+.image {
+    @include position-absolute(50%, 50%, auto, auto);
+    transform: translate(-50%, -50%);
+    height: 50px;
+    width: 50px;
+}
+
+@include respond-above($sm-breakpoint) {
+    .item {
+        height: 100px;
+        width: 98.5px;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .item {
+        height: 85px;
+        width: 83.5px;
+    }
+}

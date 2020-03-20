@@ -1,0 +1,26 @@
+@import 'mixins';
+@import 'variables';
+
+@include respond-above($sm-breakpoint) {
+    .container {
+        @include position-absolute(2em, 4em, auto, 2em);
+        width: 10em;
+        background: $color-light-gray;
+    }
+
+    .innerContainer {
+        position: relative;
+        top: 40%;
+        text-align: center;
+    }
+
+    .button {
+        width: 90%;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .container {
+        display: none;
+    }
+}

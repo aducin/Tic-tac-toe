@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message component snapshot Message component renders correctly 1`] = `
+<div
+  className="container alert alert-success"
+  role="alert"
+>
+  <button
+    aria-label="Close"
+    className="close"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+    >
+      ×
+    </span>
+  </button>
+  <h3
+    className="header"
+  >
+    CONGRATULATIONS!
+  </h3>
+  <h4
+    className="message"
+  >
+    You have won
+  </h4>
+</div>
+`;

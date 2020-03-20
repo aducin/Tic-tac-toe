@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box component snapshot Box component renders correctly 1`] = `
+<div
+  className="item"
+  onClick={[Function]}
+>
+  <img
+    alt=""
+    className="image"
+    src="o_normal.png"
+  />
+</div>
+`;

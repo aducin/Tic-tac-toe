@@ -1,0 +1,33 @@
+@import 'mixins';
+@import 'variables';
+
+.container {
+    background: $color-light-gray;
+    z-index: 1;
+}
+
+.details {
+    @include position-absolute(auto, 350px, auto, 0);
+    margin: auto;
+    width: 100%
+}
+
+@include respond-above($sm-breakpoint) {
+    .container {
+        @include position-absolute(14em, 5em, 4em, 6em);
+    }
+
+    .details {
+        top: 350px;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .container {
+        @include position-absolute(1em, 5em, 2em, 5em);
+    }
+
+    .details {
+        top: 315px;
+    }
+}

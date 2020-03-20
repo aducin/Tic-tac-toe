@@ -1,0 +1,28 @@
+@mixin borders($color, $gauge, $type: solid) {
+  border: $gauge $type $color;
+}
+
+@mixin overflows($x, $y) {
+  overflow-x: $x;
+  overflow-y: $y;
+}
+
+@mixin position-absolute($left, $top, $right, $bottom) {
+  position: absolute;
+  left: $left;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+}
+
+@mixin respond-above($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}

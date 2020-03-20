@@ -1,0 +1,28 @@
+@import 'mixins';
+@import 'variables';
+
+.container {
+    @include overflows(hidden, auto);
+    height: 90%;
+}
+
+.mobileItem {
+    list-style-type: none;
+}
+
+.mobileItem:nth-child(odd) {
+    background: $color-table-odd;
+}
+
+.mobileItemRow {
+    margin-bottom: 0.25em;
+}
+
+.mobileItemRow span {
+    float: right;
+}
+
+.mobileList {
+    margin-top: 0.5em;
+    padding: 0;
+}

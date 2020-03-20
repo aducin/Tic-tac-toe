@@ -1,0 +1,38 @@
+@import 'mixins';
+@import 'variables';
+
+.button {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 150px;
+}
+
+.container {
+    margin: auto;
+    padding-bottom: 0.5em;
+    position: relative;
+    width: 250px;
+}
+
+@include respond-above($sm-breakpoint) {
+    .button {
+        width: 150px;
+    }
+
+    .container {
+        top: 310px;
+        width: 300px;
+    }
+}
+
+@include respond-below($sm-breakpoint) {
+    .button {
+        width: 100%;
+    }
+
+    .container {
+        top: 270px;
+        width: 250px;
+    }
+}
