@@ -54,11 +54,6 @@ export interface GameType extends BoxBase {
     id: number;
 };
 
-export interface IsPossibleToWin {
-    first: number;
-    second: number
-};
-
 export interface MatchedRows {
     first: number;
     second: number;

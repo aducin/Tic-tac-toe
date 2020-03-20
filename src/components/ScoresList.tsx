@@ -11,7 +11,7 @@ const ScoresList: React.FC<ScoresProps> = (props: ScoresProps) => {
     if (isMobile) {
         const list = (props.scores as (GameHistory)[]).map((el: GameHistory, index: number) => {
             return(
-                <li className={styles.mobileItem}>
+                <li key={index} className={styles.mobileItem}>
                     <p className={styles.mobileItemRow}>
                         <label>Winner:</label>
                         <span>{el.winner}</span>

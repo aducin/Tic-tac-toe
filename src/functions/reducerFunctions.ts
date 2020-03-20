@@ -1,11 +1,11 @@
-import { Box, IsPossibleToWin, MatchedRows } from '../interfaces/interfaces';
+import { Box, MatchedRows } from '../interfaces/interfaces';
 import {
     PLAYER_FIRST_TYPE,
     ROWS_TO_WIN,
     WINNING_ROWS
 } from '../constants/constants';
 
-export const checkIfPossibleToWin = (boxes: Box[]) => boxes.reduce((result: IsPossibleToWin, box: Box ) => {
+export const checkIfPossibleToWin = (boxes: Box[]) => boxes.reduce((result: MatchedRows, box: Box ) => {
     if (box.assigned) {
         box.value === PLAYER_FIRST_TYPE ? result.first++ : result.second++;
     }
