@@ -1,4 +1,4 @@
-import { Box, HistoryAction, PlayerAction } from '../types/types';
+import { Box, ScoresAction, PlayerAction } from '../types/types';
 
 export const resetOrStartAction = (action: string) => {
     return {
@@ -16,7 +16,7 @@ export const setBoxesAction = (data: Box[]) => {
     }
 };
 
-export const setScoresAction = (data: HistoryAction) => {
+export const setScoresAction = (data: ScoresAction) => {
     return {
         type: 'setScores',
         payload: {

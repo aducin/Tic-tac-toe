@@ -10,7 +10,7 @@ import {
 
 const defaultBoxes: Box[] = Array(9).fill({ assigned: false, icon: '', value: '', winning: false });
 
-const setDefaultStoreState = (firstName: string, secondName: string) => {
+export const setDefaultStoreState = (firstName: string, secondName: string) => {
     let scores = [];
     const storageScores = localStorage.getItem('scoresList');
 
@@ -98,13 +98,13 @@ export const gameReducer = (
         case "setScores": {
             if (action.payload.scoresList) {
                 const winner = state.player1.active ? state.player1.name : state.player2.name;
-                const historyRow = {
+                const newRow = {
                     duration: action.payload.scoresList.duration,
                     finishedTime: formatDate(action.payload.scoresList.finishedTime),
                     moves: state.moves,
                     winner
                 }
-                const scores = [...state.scores, historyRow];
+                const scores = [...state.scores, newRow];
                 localStorage.setItem('scoresList', JSON.stringify(scores));
                 state = { ...state, scores };
             };

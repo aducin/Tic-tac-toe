@@ -54,11 +54,6 @@ export interface GameType extends BoxBase {
     id: number;
 };
 
-export type HistoryAction = {
-    duration: number;
-    finishedTime: Date;
-}
-
 export type IsPossibleToWin = {
     first: number;
     second: number
@@ -96,10 +91,15 @@ export type ReducerAction = {
     payload: {
         boxes?: Box[];
         player?: PlayerAction;
-        scoresList?: HistoryAction;
+        scoresList?: ScoresAction;
     }
     type: string;
 };
+
+export type ScoresAction = {
+    duration: number;
+    finishedTime: Date;
+}
 
 export interface ScoresProps {
     scores: GameHistory[] | [];
