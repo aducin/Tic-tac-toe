@@ -1,8 +1,8 @@
 import React from 'react';
-import { ScoresDetailsElementProps } from '../interfaces/interfaces';
+import { ScoreDetailsElementProps } from '../interfaces/interfaces';
 import styles from '../assets/styles/scoresList.module.scss';
 
-const ScoreDetailsElement: React.FC<ScoresDetailsElementProps> = (props: ScoresDetailsElementProps) => {
+const ScoreDetailsElement: React.FC<ScoreDetailsElementProps> = (props: ScoreDetailsElementProps) => {
     return props.mobile ?
         (
             <p className={styles.mobileItemRow}>
