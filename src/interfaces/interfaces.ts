@@ -96,14 +96,14 @@ export interface ScoresAction {
     finishedTime: Date;
 }
 
-export interface ScoresProps {
-    scores: GameHistory[] | [];
+export interface ScoresDetailsElementProps {
+    label: string;
+    mobile: boolean;
+    value: string | number;
 }
 
-export interface ScoresRowProps {
-    label: string;
-    styles: string;
-    value: string | number;
+export interface ScoresProps {
+    scores: GameHistory[] | [];
 }
 
 export interface StoreState extends ScoresProps {
