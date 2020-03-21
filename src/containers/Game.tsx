@@ -60,10 +60,15 @@ class Game extends PureComponent<GameProps, GameComponentState> {
     };
 
     componentWillUnmount() {
+        this.clearAlertTimeout();
         this.clearTurnInterval();
     };
 
-    clearTurnInterval() {
+    clearAlertTimeout = () => {
+        this.alertTimeout && clearTimeout(this.alertTimeout);
+    };
+
+    clearTurnInterval = () => {
         this.turnInterval && clearInterval(this.turnInterval);
     };
 
@@ -99,7 +104,7 @@ class Game extends PureComponent<GameProps, GameComponentState> {
     };
 
     handleRemoveMessage = () => {
-        this.alertTimeout && clearTimeout(this.alertTimeout);
+        this.clearAlertTimeout();
         if (this.state.success) {
             store.dispatch(actions.resetOrStart('reset'));
         }
@@ -123,6 +128,7 @@ class Game extends PureComponent<GameProps, GameComponentState> {
     };
 
     setMessageTimeout = () => {
+        this.clearAlertTimeout();
         this.alertTimeout = window.setTimeout(() => {
            this.handleRemoveMessage();
         }, MESSAGE_TIME);
