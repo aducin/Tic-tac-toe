@@ -28,8 +28,8 @@ class Game extends PureComponent<GameProps, GameComponentState> {
         turnTimer: TURN_TIME,
         warning: false
     };
-    alertTimeout: any;
-    turnInterval: any;
+    alertTimeout: number = 0;
+    turnInterval: number = 0;
 
     componentDidMount() {
         store.dispatch(actions.resetOrStart('reset'));
@@ -123,14 +123,14 @@ class Game extends PureComponent<GameProps, GameComponentState> {
     };
 
     setMessageTimeout = () => {
-        this.alertTimeout = setTimeout(() => {
+        this.alertTimeout = window.setTimeout(() => {
            this.handleRemoveMessage();
         }, MESSAGE_TIME);
     };
 
     setTurnTimeout = () => {
         this.clearTurnInterval();
-        this.turnInterval = setInterval(() => {
+        this.turnInterval = window.setInterval(() => {
             if (this.state.turnTimer > 0) {
                 const turnTimer = this.state.turnTimer - 1;
                 this.setState({ turnTimer });
